@@ -3,6 +3,11 @@
 /* Configuration file for php-basic-auth. Be sure to configure the file to match the needs of your database and use-case. */
 
 class AuthConfig {
+  
+  /* Debug Mode */
+  /* This mode will print errors for easy developer comprehension. Disable for production use. */
+  public $debug = true;
+
 
   /* Database Configurations */
   public $databaseHost = "127.0.0.1";   // URL or IP where database is located:               REQUIRED
