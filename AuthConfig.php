@@ -46,8 +46,8 @@ class AuthConfig {
   /* Security Settings */
   /*--------------------------------------------------------------------------------------------------------*/
   //REQUIRED
-  // Did you use the password_hash() function?
-  public $didUsePasswordHashing = true;
+  // Did you use the password_hash() function? Currently only PASSWORD_DEFAULT hashes are supported.
+  public $passwordIsHashed = true;
 
 
 
@@ -55,8 +55,14 @@ class AuthConfig {
   /*--------------------------------------------------------------------------------------------------------*/
   /* Write the SQL Statement to Match Your Needs. All information will be returned in an object */
   public $sqlStatement = "SELECT * FROM users WHERE username=? LIMIT 1";
-
-
+  
+  
+  
+  /* Response Settings */
+  /*--------------------------------------------------------------------------------------------------------*/
+  // Scripts should stop executing and return a 401 HTTP Header only.
+  // If false, an object with errors and data is returned (Along with a 401 Header).
+  public $shouldDieOnUnauthenticated = true;
 
 }
 
