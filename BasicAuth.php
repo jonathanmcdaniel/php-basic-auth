@@ -6,8 +6,20 @@ require __DIR__ . '/AuthConfig.php';
 
 class BasicAuth {
   
+  
+  // Auth Config Object
+  $AuthConfig;
+  
+  
+  // User Credentials
   $user;
   $password;
+  
+  
+  // Set up the Auth Config Object
+  function __construct () {
+    $this->AuthConfig = new AuthConfig();
+  }
   
   
   // Authenticate the User
@@ -17,11 +29,15 @@ class BasicAuth {
     $this->user = $user;
     $this->password = $password;
     
+    validateConfigSettings();
+    retrieveUser();
+    
+    return;
   }
   
   
   // Ensure hat Configurations are Properly Set
-  private function validateConfigSettings () {
+  private function validateConfigSettings ($AuthConfig = $this->AuthConfig) {
     
   }
   
